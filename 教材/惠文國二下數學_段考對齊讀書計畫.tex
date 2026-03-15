@@ -1,0 +1,279 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\PassOptionsToPackage{space}{xeCJK}
+\documentclass[
+  chinese,
+  12pt,
+  a4paper,
+  oneside]{article}
+\usepackage{xcolor}
+\usepackage[top=24mm,bottom=26mm,left=24mm,right=24mm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmonofont[]{Menlo}
+  \ifXeTeX
+    \usepackage{xeCJK}
+    \setCJKmainfont[]{Songti TC}
+  \fi
+  \ifLuaTeX
+    \usepackage[]{luatexja-fontspec}
+    \setmainjfont[]{Songti TC}
+  \fi
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off,provide=*]{babel}
+\else
+\usepackage[bidi=default,shorthands=off,provide=*]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\setstretch{1.18}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\headheight}{14pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{惠文國二下數學 PBL 自學教材}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+
+\AtBeginDocument{
+  \hypersetup{
+    unicode=true,
+    pdfborder={0 0 0}
+  }
+}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={惠文國二下數學段考對齊讀書計畫},
+  pdflang={zh-TW},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{惠文國二下數學段考對齊讀書計畫}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\setstretch{1.18}
+版本日期：2026-03-08\\
+整理依據：惠文高中公開課程計畫 \texttt{表三彙整0813(8年級).pdf}\\
+用途：給自學生快速對照段考範圍與建議讀法
+
+\section{一、先看結論}\label{ux4e00ux5148ux770bux7d50ux8ad6}
+
+\subsection{第一次定期評量前}\label{ux7b2cux4e00ux6b21ux5b9aux671fux8a55ux91cfux524d}
+
+\begin{itemize}
+\tightlist
+\item
+  建議完成：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{1-1} 認識數列與等差數列
+  \item
+    \texttt{1-2} 等差級數
+  \item
+    \texttt{1-3} 等比數列
+  \end{itemize}
+\item
+  對應教材：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{單元\ 1-1、1-2　四大島嶼的節奏密碼}
+  \item
+    \texttt{單元\ 1-3　倍率傳訊與等比數列}
+  \end{itemize}
+\end{itemize}
+
+\subsection{第二次定期評量前}\label{ux7b2cux4e8cux6b21ux5b9aux671fux8a55ux91cfux524d}
+
+\begin{itemize}
+\tightlist
+\item
+  建議完成：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{2-1} 變數與函數
+  \item
+    \texttt{2-2} 線型函數與圖形
+  \item
+    \texttt{3-1} 內角與外角
+  \item
+    \texttt{3-2} 尺規作圖與三角形的全等
+  \end{itemize}
+\item
+  對應教材：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{單元\ 2-1、2-2　水安宮站的成本函數}
+  \item
+    \texttt{單元\ 3-1　角度偵查與內角外角}
+  \item
+    \texttt{單元\ 3-2　尺規作圖與公平服務點}
+  \end{itemize}
+\end{itemize}
+
+\subsection{第三次定期評量前}\label{ux7b2cux4e09ux6b21ux5b9aux671fux8a55ux91cfux524d}
+
+\begin{itemize}
+\tightlist
+\item
+  建議完成：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{3-3} 全等三角形的應用
+  \item
+    \texttt{3-4} 中垂線與角平分線性質
+  \item
+    \texttt{3-5} 三角形的邊角關係
+  \item
+    \texttt{4-1} 平行線與截角性質
+  \item
+    \texttt{4-2} 平行四邊形
+  \item
+    \texttt{4-3} 特殊四邊形與梯形
+  \end{itemize}
+\item
+  對應教材：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{單元\ 3-3　全等三角形與穩定支架}
+  \item
+    \texttt{單元\ 3-4　中垂線與角平分線指令}
+  \item
+    \texttt{單元\ 3-5　三角形的邊角關係}
+  \item
+    \texttt{單元\ 4-1　平行線與截角暗號}
+  \item
+    \texttt{單元\ 4-2　平行四邊形與展區版面}
+  \item
+    \texttt{單元\ 4-3　特殊四邊形與梯形總檢}
+  \end{itemize}
+\end{itemize}
+
+\section{二、每週怎麼讀}\label{ux4e8cux6bcfux9031ux600eux9ebcux8b80}
+
+\subsection{讀新單元的順序}\label{ux8b80ux65b0ux55aeux5143ux7684ux9806ux5e8f}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  先聽 \texttt{voice}
+\item
+  再看直覺問題
+\item
+  再看公式與手算
+\item
+  做 \texttt{checkpoint}
+\item
+  做章末練習
+\item
+  最後口頭解釋一次
+\end{enumerate}
+
+\subsection{一次讀書的最小單位}\label{ux4e00ux6b21ux8b80ux66f8ux7684ux6700ux5c0fux55aeux4f4d}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{25} 分鐘看新內容
+\item
+  \texttt{10} 分鐘手算
+\item
+  \texttt{5} 分鐘口頭重講
+\end{itemize}
+
+\subsection{段考前最後一週}\label{ux6bb5ux8003ux524dux6700ux5f8cux4e00ux9031}
+
+\begin{itemize}
+\tightlist
+\item
+  第 \texttt{7} 天到第 \texttt{5} 天：重做所有例題
+\item
+  第 \texttt{4} 天到第 \texttt{3} 天：重做章末練習
+\item
+  第 \texttt{2} 天：整理最容易錯的公式和判斷點
+\item
+  第 \texttt{1} 天：只做輕量複習，不再硬塞新題
+\end{itemize}
+
+\section{三、這份計畫怎麼用}\label{ux4e09ux9019ux4efdux8a08ux756bux600eux9ebcux7528}
+
+\begin{itemize}
+\tightlist
+\item
+  如果你跟著學校正常上課，就拿它來對照自己有沒有落後。
+\item
+  如果你是自主超前，就拿它來安排每次段考前的回頭複習。
+\item
+  如果老師公布的實際考試範圍和公開課程計畫不同，以老師現場宣布為準。
+\end{itemize}
+
+\end{document}

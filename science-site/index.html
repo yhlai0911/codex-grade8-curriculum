@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>國二下自然互動學習站</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23d96c34'/%3E%3Cpath d='M22 14h20v8l-6 10c8 2 14 8 14 16 0 10-8 18-18 18S14 58 14 48c0-8 6-14 14-16l-6-10z' fill='%23fff7ef'/%3E%3Ccircle cx='32' cy='47' r='7' fill='%232c7f7b'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="guided-mode">
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">國中二年級下學期自然科</p>
+          <h1>用互動實驗與任務闖關，把化學觀念真正學懂。</h1>
+          <p class="hero-text">
+            這個網站把常見教材版本的國二下自然重點，整理成四個學習站。你可以切換主題、翻概念卡、做小實驗、答題拿徽章，慢慢把每個反應背後的邏輯串起來。
+          </p>
+          <div class="exam-alert">
+            段考衝刺模式：先做混合快測，再回頭集中補最弱單元與高頻陷阱。
+          </div>
+          <div class="motivation-alert">
+            如果現在完全不想讀，也可以。網站會直接告訴你下一步，只要先做 3 分鐘。
+          </div>
+          <div class="hero-actions">
+            <button id="start-learning" class="primary-btn">開始 3 分鐘</button>
+            <button id="toggle-guided-mode" class="ghost-btn">切換成完整模式</button>
+          </div>
+          <div class="hero-utility">
+            <button id="reset-progress" class="text-btn" type="button">重設進度</button>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="stat-card">
+            <span>完成章節</span>
+            <strong id="completed-count">0 / 4</strong>
+          </div>
+          <div class="stat-card">
+            <span>最佳測驗平均</span>
+            <strong id="best-score">0%</strong>
+          </div>
+          <div class="stat-card">
+            <span>今日任務</span>
+            <strong id="daily-task">先完成第一個學習站</strong>
+          </div>
+          <div class="stat-card accent-card">
+            <span>段考補強焦點</span>
+            <strong id="cram-focus">先做混合快測</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <aside class="module-rail">
+          <div class="rail-header">
+            <h2>學習站</h2>
+            <p>依概念由淺到深排列</p>
+          </div>
+          <nav id="module-nav" class="module-nav" aria-label="學習站切換"></nav>
+          <section class="progress-card">
+            <h3>學習節奏建議</h3>
+            <ol>
+              <li>先看任務與學習目標</li>
+              <li>讀核心觀念與手算範例</li>
+              <li>操作右側的小實驗</li>
+              <li>完成測驗並標記完成</li>
+            </ol>
+          </section>
+          <section class="progress-card cram-card">
+            <div class="panel-header">
+              <h3>7 天段考衝刺</h3>
+              <button id="jump-to-sprint" class="ghost-btn compact">做快測</button>
+            </div>
+            <p id="cram-status" class="cram-status"></p>
+            <ul id="weak-topic-list" class="check-list"></ul>
+            <ol id="plan-list" class="plan-list"></ol>
+          </section>
+        </aside>
+
+        <section class="content-column">
+          <section class="panel guide-panel" id="guide-panel">
+            <div class="panel-header">
+              <h3>低動力救援模式</h3>
+              <strong id="focus-timer" class="focus-timer">3:00</strong>
+            </div>
+            <p id="guide-message" class="guide-message"></p>
+            <div class="guide-card">
+              <p id="guide-step-tag" class="subpanel-label"></p>
+              <h4 id="guide-step-title"></h4>
+              <p id="guide-step-desc" class="guide-step-desc"></p>
+              <ul id="guide-step-checklist" class="check-list"></ul>
+            </div>
+            <div class="micro-progress">
+              <span id="guide-progress-label"></span>
+              <div class="micro-progress-track">
+                <div id="guide-progress-fill" class="micro-progress-fill"></div>
+              </div>
+            </div>
+            <div class="hero-actions guide-actions">
+              <button id="guide-action" class="primary-btn compact">帶我去做</button>
+              <button id="guide-done" class="ghost-btn compact">我做完了，下一步</button>
+              <button id="guide-easier" class="text-btn compact" type="button">太難，換更簡單</button>
+            </div>
+          </section>
+
+          <section class="panel cram-overview-panel" id="cram-overview-panel">
+            <div class="panel-header">
+              <h3>段考密集補強區</h3>
+            </div>
+            <div class="two-panel-grid cram-grid">
+              <section class="subpanel">
+                <p class="subpanel-label">本章高頻必考</p>
+                <ul id="must-know-list" class="check-list"></ul>
+                <div class="memory-box">
+                  <strong>30 秒口訣</strong>
+                  <p id="memory-hook"></p>
+                </div>
+              </section>
+              <section class="subpanel warm">
+                <p class="subpanel-label">最容易失分</p>
+                <ul id="trap-list" class="check-list"></ul>
+                <div class="memory-box warm">
+                  <strong>考前最後一題</strong>
+                  <p id="final-drill"></p>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <article class="module-overview">
+            <div class="module-heading">
+              <p id="module-tag" class="module-tag"></p>
+              <h2 id="module-title"></h2>
+            </div>
+            <p id="module-scene" class="module-scene"></p>
+            <div class="mission-grid">
+              <div class="mission-card accent">
+                <span>Mission</span>
+                <p id="module-mission"></p>
+              </div>
+              <div class="mission-card">
+                <span>核心模型</span>
+                <p id="module-core-model"></p>
+              </div>
+              <div class="mission-card">
+                <span>核心決策</span>
+                <p id="module-core-decision"></p>
+              </div>
+              <div class="mission-card accent-soft">
+                <span>本章徽章</span>
+                <p id="module-badge"></p>
+              </div>
+            </div>
+          </article>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h3>學習目標</h3>
+              <button id="toggle-complete" class="ghost-btn compact">標記本章完成</button>
+            </div>
+            <ul id="module-goals" class="goal-list"></ul>
+          </section>
+
+          <section class="two-panel-grid full-study-only">
+            <section class="panel">
+              <div class="panel-header">
+                <h3>核心觀念階梯</h3>
+              </div>
+              <div id="theory-stack" class="theory-stack"></div>
+            </section>
+            <section class="panel tinted">
+              <div class="panel-header">
+                <h3>先備觀念</h3>
+              </div>
+              <ul id="prerequisites" class="check-list"></ul>
+              <div class="checkpoint-box">
+                <h4 id="checkpoint-title"></h4>
+                <ul id="checkpoint-points" class="check-list"></ul>
+              </div>
+            </section>
+          </section>
+
+          <section class="two-panel-grid full-study-only">
+            <section class="panel">
+              <div class="panel-header">
+                <h3>手算範例</h3>
+              </div>
+              <h4 id="example-title"></h4>
+              <ol id="example-steps" class="step-list"></ol>
+              <p id="example-answer" class="example-answer"></p>
+            </section>
+            <section class="panel">
+              <div class="panel-header">
+                <h3>PBL 決策示範</h3>
+              </div>
+              <h4 id="pbl-title"></h4>
+              <p id="pbl-scenario" class="pbl-scenario"></p>
+              <div id="pbl-options" class="option-grid"></div>
+              <div class="decision-box">
+                <strong>決策路徑</strong>
+                <ol id="pbl-reasoning" class="step-list"></ol>
+              </div>
+            </section>
+          </section>
+
+          <section class="two-panel-grid full-study-only">
+            <section class="panel">
+              <div class="panel-header">
+                <h3>常見迷思</h3>
+              </div>
+              <div id="myth-list" class="myth-list"></div>
+            </section>
+            <section class="panel boss-panel">
+              <div class="panel-header">
+                <h3>Boss 任務</h3>
+              </div>
+              <p id="boss-prompt" class="boss-prompt"></p>
+              <ul id="boss-checklist" class="check-list"></ul>
+              <p id="module-cliffhanger" class="cliffhanger"></p>
+            </section>
+          </section>
+        </section>
+
+        <aside class="interactive-column">
+          <section class="panel tool-shell">
+            <div class="panel-header tool-shell-header">
+              <div>
+                <h3>學習工具</h3>
+                <p class="tool-shell-copy">一次只打開一個工具，避免同時分心。</p>
+              </div>
+            </div>
+            <div class="tool-tabs" role="tablist" aria-label="學習工具切換">
+              <button id="tool-tab-sprint" class="tool-tab active" type="button" data-tool="sprint">快測</button>
+              <button id="tool-tab-quiz" class="tool-tab" type="button" data-tool="quiz">本章題</button>
+              <button id="tool-tab-flashcard" class="tool-tab" type="button" data-tool="flashcard">抽認卡</button>
+              <button id="tool-tab-lab" class="tool-tab" type="button" data-tool="lab">小實驗</button>
+            </div>
+
+            <section class="tool-panel active" id="sprint-panel" data-tool-panel="sprint">
+              <div class="panel-header tool-panel-header">
+                <h4>段考衝刺快測</h4>
+                <button id="regen-sprint" class="ghost-btn compact">換一組題</button>
+              </div>
+              <p class="sprint-meta">
+                混合四個單元的高頻題，建議限時 5 分鐘完成。先做這裡，錯題再回頭補章節。
+              </p>
+              <form id="sprint-form" class="quiz-form"></form>
+              <div class="quiz-actions">
+                <button id="submit-sprint" class="primary-btn compact" type="button">批改快測</button>
+              </div>
+              <div id="sprint-result" class="quiz-result"></div>
+            </section>
+
+            <section class="tool-panel" id="quiz-panel" data-tool-panel="quiz">
+              <div class="panel-header tool-panel-header">
+                <h4>本章小測驗</h4>
+              </div>
+              <form id="quiz-form" class="quiz-form"></form>
+              <div class="quiz-actions">
+                <button id="submit-quiz" class="primary-btn compact" type="button">批改測驗</button>
+              </div>
+              <div id="quiz-result" class="quiz-result"></div>
+            </section>
+
+            <section class="tool-panel" id="flashcard-panel" data-tool-panel="flashcard">
+              <div class="panel-header tool-panel-header">
+                <h4>概念抽認卡</h4>
+                <button id="next-card" class="ghost-btn compact">換一張</button>
+              </div>
+              <button id="flashcard" class="flashcard" type="button" aria-live="polite"></button>
+              <p class="flashcard-tip">點卡片可翻面。</p>
+            </section>
+
+            <section class="tool-panel" id="lab-panel" data-tool-panel="lab">
+              <div class="panel-header tool-panel-header">
+                <h4>互動小實驗</h4>
+              </div>
+              <div id="lab-container"></div>
+            </section>
+          </section>
+        </aside>
+      </main>
+
+      <footer class="footer-note">
+        <p>
+          課程範圍依台灣常見國中自然教材版本的國二下單元整合而成，並重新編排成互動學習順序。
+        </p>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

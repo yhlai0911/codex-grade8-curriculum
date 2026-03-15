@@ -1,0 +1,2498 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\PassOptionsToPackage{space}{xeCJK}
+\documentclass[
+  chinese,
+  12pt,
+  a4paper,
+  oneside]{article}
+\usepackage{xcolor}
+\usepackage[top=24mm,bottom=26mm,left=24mm,right=24mm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmonofont[]{Menlo}
+  \ifXeTeX
+    \usepackage{xeCJK}
+    \setCJKmainfont[]{Songti TC}
+  \fi
+  \ifLuaTeX
+    \usepackage[]{luatexja-fontspec}
+    \setmainjfont[]{Songti TC}
+  \fi
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off,provide=*]{babel}
+\else
+\usepackage[bidi=default,shorthands=off,provide=*]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\setstretch{1.18}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.45em}
+\setlength{\headheight}{14pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{惠文國二下數學 PBL 自學教材}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+
+\AtBeginDocument{
+  \hypersetup{
+    unicode=true,
+    pdfborder={0 0 0}
+  }
+}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={惠文國二下數學 PBL 自學語音教材},
+  pdflang={zh-TW},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{惠文國二下數學 PBL 自學語音教材}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\setstretch{1.18}
+版本日期：2026-03-08\\
+適用對象：臺中市立惠文高中國中部八年級學生\\
+教材定位：自學優先、可搭配課堂、可直接轉成 Edge TTS 音檔
+
+\begin{quote}
+{[}語音解說{]} 任務上線
+
+音檔代號：\texttt{00-orientation}
+
+歡迎進入《惠文七期任務局》。這不是一本只要你背公式的數學講義，而是一套要你靠數學完成真實任務的冒險教材。你會從惠文高中出發，穿過水安宮站、文心森林公園、台中捷運綠線與校園圖書館，把數列、一次函數、尺規作圖、全等三角形和平行四邊形，真的拿來解決問題。每一章都有任務、手算、決策題和
+Boss
+關。你可以先聽語音，再停下來算；也可以先算，再用語音複習。這次，你不是旁觀者，你是任務設計師。
+\end{quote}
+
+\section{一、這份教材為什麼特別為惠文設計}\label{ux4e00ux9019ux4efdux6559ux6750ux70baux4ec0ux9ebcux7279ux5225ux70baux60e0ux6587ux8a2dux8a08}
+
+這份教材不是通用模板，而是依照 2026 年 3
+月以前可查到的最新公開資訊設計：
+
+\begin{itemize}
+\tightlist
+\item
+  惠文高中目前公開資訊顯示，學校特色包含國際教育、第二外語、數位校園、圖書館與國際行動力中心。
+\item
+  惠文高中公開頁面目前指出，國中部學生已有第二外語課程，學校位於臺中市第七期重劃區。
+\item
+  惠文高中交通資訊目前寫明，學生可由台中捷運 \texttt{水安宮站}
+  下車後步行前往，並可搭配 \texttt{YouBike}。
+\item
+  惠文高中數位校園頁面目前寫明，全校無線網路覆蓋率接近
+  \texttt{100\%}，並有單一帳號登入整合。
+\item
+  臺中市政府於 \texttt{2026-03-02} 公告，\texttt{2026\ 臺中兒童藝術節}
+  活動行事曆標示活動起迄日為 \texttt{2026-04-03} 至
+  \texttt{2026-04-26}；其中文心森林公園主活動為 \texttt{2026-04-03} 至
+  \texttt{2026-04-05}，4 月其餘週末另有相關藝文場館演出。
+\item
+  臺中捷運官方目前公開資料顯示，綠線全長 \texttt{16.71\ 公里}、共
+  \texttt{18\ 站}。
+\end{itemize}
+
+因此，本教材的故事主線設定為：
+
+\begin{quote}
+惠文國二學生受邀成立「七期任務局」，要協助規劃一場結合兒藝節、校園國際行動與社區導覽的數學任務展。\\
+你必須一路解鎖數學工具，最後完成自己的「惠文數學冒險館」企畫。
+\end{quote}
+
+\subsection{依惠文公開課程計畫校正的單元順序}\label{ux4f9dux60e0ux6587ux516cux958bux8ab2ux7a0bux8a08ux756bux6821ux6b63ux7684ux55aeux5143ux9806ux5e8f}
+
+\texttt{2026-03-08} 查核時，惠文官網公開可取得的國中八年級完整單元表為
+\texttt{113學年度} 的 \texttt{表三彙整0813(8年級).pdf}。公開資料夾中未見
+\texttt{114學年度國中部}
+的八年級詳細表，因此這份自學稿採用「校方目前公開可查的最新完整八年級單元表」來對齊順序。
+
+依這份校方公開資料，八下數學單元順序為：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{1-1\ 認識數列與等差數列}
+\item
+  \texttt{1-2\ 等差級數}
+\item
+  \texttt{1-3\ 等比數列}
+\item
+  \texttt{2-1\ 變數與函數}
+\item
+  \texttt{2-2\ 線型函數與圖形}
+\item
+  \texttt{3-1\ 內角與外角}
+\item
+  \texttt{3-2\ 尺規作圖與三角形的全等}
+\item
+  \texttt{3-3\ 全等三角形的應用}
+\item
+  \texttt{3-4\ 中垂線與角平分線性質}
+\item
+  \texttt{3-5\ 三角形的邊角關係}
+\item
+  \texttt{4-1\ 平行線與截角性質}
+\item
+  \texttt{4-2\ 平行四邊形}
+\item
+  \texttt{4-3\ 特殊四邊形與梯形}
+\end{enumerate}
+
+所以這份教材改成「主章 + 插卡」讀法：
+
+\begin{itemize}
+\tightlist
+\item
+  主章：保留完整故事任務與較完整的 PBL 練習。
+\item
+  插卡：補齊惠文實際教學順序中的關鍵單元，讓自學進度能和校內課程對上。
+\end{itemize}
+
+\section{二、學期章節卡}\label{ux4e8cux5b78ux671fux7ae0ux7bc0ux5361}
+
+\begin{itemize}
+\tightlist
+\item
+  章名：惠文七期任務局
+\item
+  本學期衝突：如何把國二下數學，真的用在惠文校園與文心森林公園生活圈？
+\item
+  本學期核心模型：從規律、函數到幾何定位與結構判定
+\item
+  本學期核心決策：如何設計一個真的能執行、能說服他人、能展示成果的數學任務方案？
+\item
+  主要數據來源：惠文高中官網、臺中市政府公開活動資訊、臺中捷運官方資訊、教育部學習內容代碼
+\item
+  章末可評分產出：個人任務手冊、關卡計算紙、最終企畫書、語音導覽稿
+\item
+  學期徽章：七期數學策展人
+\item
+  Cliffhanger：你最後能不能把數學任務，從紙上帶進校園與社區？
+\end{itemize}
+
+\section{三、你這學期會拿到的能力}\label{ux4e09ux4f60ux9019ux5b78ux671fux6703ux62ffux5230ux7684ux80fdux529b}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  看出規律，建立等差與等比數列估算。
+\item
+  用一次函數表示成本、時間或資源分配。
+\item
+  用內角、外角與截角關係判讀方向與動線。
+\item
+  用尺規作圖思考「哪裡最公平」「哪裡最方便」。
+\item
+  用全等與邊角關係判斷結構是否可靠。
+\item
+  用平行四邊形與特殊四邊形檢查版面與展架。
+\item
+  把算式講給別人聽，變成一段清楚的語音解說。
+\end{enumerate}
+
+\section{四、自學玩法}\label{ux56dbux81eaux5b78ux73a9ux6cd5}
+
+\subsection{你的基本裝備}\label{ux4f60ux7684ux57faux672cux88ddux5099}
+
+\begin{itemize}
+\tightlist
+\item
+  一枝筆
+\item
+  方格紙或空白紙
+\item
+  直尺與圓規
+\item
+  可播放 MP3 的手機、平板或電腦
+\item
+  如果想做加分挑戰，再準備 Python 或 Desmos
+\end{itemize}
+
+\subsection{你的破關節奏}\label{ux4f60ux7684ux7834ux95dcux7bc0ux594f}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  先聽 \texttt{voice} 區塊。
+\item
+  用自己的話說出「這一關要學什麼」。
+\item
+  看手算範例，不可跳步。
+\item
+  自己做一題。
+\item
+  再做 PBL 決策題。
+\item
+  最後回答「我為什麼這樣選」。
+\end{enumerate}
+
+\subsection{遊戲化規則}\label{ux904aux6232ux5316ux898fux5247}
+
+\begin{itemize}
+\tightlist
+\item
+  每完成一章任務，得到 \texttt{1} 枚徽章。
+\item
+  每完成一題 Boss 題，得到 \texttt{1} 把關鍵鑰匙。
+\item
+  蒐集滿 \texttt{5} 把鑰匙，就能開啟終章。
+\end{itemize}
+
+\section{五、學期地圖}\label{ux4e94ux5b78ux671fux5730ux5716}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  序章：任務理解 真實情境：惠文校園與七期生活圈
+\item
+  單元 \texttt{1-1} 認識數列與等差數列 自學任務：四大島嶼的節奏密碼前半
+  真實情境：兒藝節四大島嶼人流
+\item
+  單元 \texttt{1-2} 等差級數 自學任務：四大島嶼的節奏密碼後半
+  真實情境：任務卡與材料總量估算
+\item
+  單元 \texttt{1-3} 等比數列 自學任務：倍率傳訊與等比數列
+  真實情境：宣傳擴散與分享倍率
+\item
+  單元 \texttt{2-1} 變數與函數 自學任務：水安宮站的成本函數前半
+  真實情境：任務包成本關係
+\item
+  單元 \texttt{2-2} 線型函數與圖形 自學任務：水安宮站的成本函數後半
+  真實情境：水安宮站與導覽包成本圖形
+\item
+  單元 \texttt{3-1} 內角與外角 自學任務：角度偵查與內角外角
+  真實情境：路線轉角與方向判讀
+\item
+  單元 \texttt{3-2} 尺規作圖與三角形的全等
+  自學任務：尺規作圖與公平服務點 真實情境：公平服務點與等距位置
+\item
+  單元 \texttt{3-3} 全等三角形的應用 自學任務：全等三角形與穩定支架
+  真實情境：指示牌支架與穩定性
+\item
+  單元 \texttt{3-4} 中垂線與角平分線性質 自學任務：中垂線與角平分線指令
+  真實情境：導覽線對稱與等腰設計
+\item
+  單元 \texttt{3-5} 三角形的邊角關係 自學任務：三角形的邊角關係
+  真實情境：三角支架能不能成立
+\item
+  單元 \texttt{4-1} 平行線與截角性質 自學任務：平行線與截角暗號
+  真實情境：地貼箭頭與平行動線
+\item
+  單元 \texttt{4-2} 平行四邊形 自學任務：平行四邊形與展區版面
+  真實情境：展板、地貼與導覽區
+\item
+  單元 \texttt{4-3} 特殊四邊形與梯形 自學任務：特殊四邊形與梯形總檢
+  真實情境：特殊展架與舞台邊框
+\item
+  終章：跨章整合 真實情境：惠文數學冒險館
+\end{enumerate}
+
+自學時，請照這張表的順序走，不要只看章節編號。
+
+\section{六、段考對齊自學路線}\label{ux516dux6bb5ux8003ux5c0dux9f4aux81eaux5b78ux8defux7dda}
+
+以下切點依惠文公開課程計畫 \texttt{表三彙整0813(8年級).pdf}
+中可辨識的數學進度與定期評量標示整理。\\
+本稿把自學節奏切成三段，讓你可以直接對應惠文國中部八下數學科的段考前複習。
+
+\subsection{第一次定期評量前}\label{ux7b2cux4e00ux6b21ux5b9aux671fux8a55ux91cfux524d}
+
+\begin{itemize}
+\tightlist
+\item
+  公開課程計畫可辨識切點：\texttt{2025-03-26} 第一次定期評量
+\item
+  建議完成單元：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    單元 \texttt{1-1} 認識數列與等差數列
+  \item
+    單元 \texttt{1-2} 等差級數
+  \item
+    單元 \texttt{1-3} 等比數列
+  \end{itemize}
+\item
+  對應本稿閱讀：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{單元\ 1-1、1-2　四大島嶼的節奏密碼}
+  \item
+    \texttt{單元\ 1-3　倍率傳訊與等比數列}
+  \end{itemize}
+\item
+  這一段的核心能力：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    看規律
+  \item
+    求第 \(n\) 項
+  \item
+    求前 \(n\) 項和
+  \item
+    分辨等差與等比
+  \end{itemize}
+\end{itemize}
+
+\subsection{第二次定期評量前}\label{ux7b2cux4e8cux6b21ux5b9aux671fux8a55ux91cfux524d}
+
+\begin{itemize}
+\tightlist
+\item
+  公開課程計畫可辨識切點：\texttt{2025-05-16} 第二次定期評量
+\item
+  依公開單元排列，建議在這之前完成：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    單元 \texttt{2-1} 變數與函數
+  \item
+    單元 \texttt{2-2} 線型函數與圖形
+  \item
+    單元 \texttt{3-1} 內角與外角
+  \item
+    單元 \texttt{3-2} 尺規作圖與三角形的全等
+  \end{itemize}
+\item
+  對應本稿閱讀：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{單元\ 2-1、2-2　水安宮站的成本函數}
+  \item
+    \texttt{單元\ 3-1　角度偵查與內角外角}
+  \item
+    \texttt{單元\ 3-2　尺規作圖與公平服務點}
+  \end{itemize}
+\item
+  這一段的核心能力：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    寫函數式
+  \item
+    讀線型函數圖形
+  \item
+    用內角、外角解題
+  \item
+    用尺規作圖與等距性質判斷位置
+  \end{itemize}
+\end{itemize}
+
+\subsection{第三次定期評量前}\label{ux7b2cux4e09ux6b21ux5b9aux671fux8a55ux91cfux524d}
+
+\begin{itemize}
+\tightlist
+\item
+  公開課程計畫可辨識切點：\texttt{2025-06-27} 第三次定期評量
+\item
+  依公開單元排列，建議在這之前完成：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    單元 \texttt{3-3} 全等三角形的應用
+  \item
+    單元 \texttt{3-4} 中垂線與角平分線性質
+  \item
+    單元 \texttt{3-5} 三角形的邊角關係
+  \item
+    單元 \texttt{4-1} 平行線與截角性質
+  \item
+    單元 \texttt{4-2} 平行四邊形
+  \item
+    單元 \texttt{4-3} 特殊四邊形與梯形
+  \end{itemize}
+\item
+  對應本稿閱讀：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{單元\ 3-3　全等三角形與穩定支架}
+  \item
+    \texttt{單元\ 3-4　中垂線與角平分線指令}
+  \item
+    \texttt{單元\ 3-5　三角形的邊角關係}
+  \item
+    \texttt{單元\ 4-1　平行線與截角暗號}
+  \item
+    \texttt{單元\ 4-2　平行四邊形與展區版面}
+  \item
+    \texttt{單元\ 4-3　特殊四邊形與梯形總檢}
+  \end{itemize}
+\item
+  這一段的核心能力：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    用全等判斷結構
+  \item
+    理解中垂線、角平分線與等腰性質
+  \item
+    檢查三角形能否成立
+  \item
+    用平行線、平行四邊形與特殊四邊形性質解題
+  \end{itemize}
+\end{itemize}
+
+\subsection{自學安排建議}\label{ux81eaux5b78ux5b89ux6392ux5efaux8b70}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  段考前至少保留 \texttt{7} 天做總複習，不要把新單元拖到最後一晚。
+\item
+  每完成一個單元，先做本稿的 \texttt{checkpoint}，再做章末練習。
+\item
+  段考前複習順序不要只照頁數翻，要照「本段考範圍的單元順序」重跑一次。
+\item
+  若你在校內課堂進度比這份公開表更快，請以老師實際宣布的範圍優先。
+\end{enumerate}
+
+\newpage
+
+\section{單元
+1-1、1-2　四大島嶼的節奏密碼}\label{ux55aeux5143-1-11-2-ux56dbux5927ux5cf6ux5dbcux7684ux7bc0ux594fux5bc6ux78bc}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：文心森林公園的兒藝節有夢之島、故事島、遊戲島、咕嚕島四個主題區。你的小隊接到第一個任務：估算活動物資，不然第一天就會缺材料。
+\item
+  \texttt{mission}：學會看出規律、求出某一項與前幾項總和，決定貼紙、任務卡和志工時段要準備多少。
+\item
+  惠文對齊單元：\texttt{1-1}、\texttt{1-2}
+\item
+  學習內容對應：\texttt{N-8-3}
+\item
+  本章核心模型：等差數列與等差級數
+\item
+  本章核心決策：到底要印多少張任務卡，才不會不夠也不會浪費？
+\item
+  本章徽章：節奏分析師
+\end{itemize}
+
+\begin{quote}
+{[}語音解說{]} 第一章開場
+
+音檔代號：\texttt{01-sequence-opening}
+
+任務局的第一個危機來了。文心森林公園活動區分成四大島嶼，學生志工說第一天下午每半小時來玩的孩子會越來越多。如果任務卡印太少，隊伍會卡住；如果印太多，又會浪費經費。這一章你要學的是數列，尤其是等差數列與前幾項總和。你不只是算出數字，而是要替活動做出合理估算。
+\end{quote}
+
+\subsection{1. 先備觀念}\label{ux5148ux5099ux89c0ux5ff5}
+
+\begin{itemize}
+\tightlist
+\item
+  你要會加法、乘法與平均分配。
+\item
+  你要知道「規律」不是猜感覺，而是能說出每一步差多少。
+\end{itemize}
+
+\subsection{2. 核心理論}\label{ux6838ux5fc3ux7406ux8ad6}
+
+\subsubsection{直覺問題}\label{ux76f4ux89baux554fux984c}
+
+如果第一個半小時來了 \texttt{48} 人，之後每半小時都多 \texttt{12} 人，第
+\texttt{6} 個半小時會有幾人？前 \texttt{6} 個半小時總共會來幾人？
+
+\subsubsection{定義}\label{ux5b9aux7fa9}
+
+\begin{itemize}
+\tightlist
+\item
+  數列：照某種順序排成的一串數。
+\item
+  等差數列：相鄰兩項的差都一樣。
+\item
+  公差：每次固定增加或減少的數。
+\end{itemize}
+
+\subsubsection{公式}\label{ux516cux5f0f}
+
+\begin{itemize}
+\tightlist
+\item
+  第 \(n\) 項：\(a_n = a_1 + (n - 1)d\)
+\item
+  前 \(n\) 項和：\(S_n = \frac{n(a_1 + a_n)}{2}\)
+\end{itemize}
+
+\subsubsection{符號解釋}\label{ux7b26ux865fux89e3ux91cb}
+
+\begin{itemize}
+\tightlist
+\item
+  \(a_1\)：第一項
+\item
+  \(a_n\)：第 \(n\) 項
+\item
+  \(d\)：公差
+\item
+  \(S_n\)：前 \(n\) 項總和
+\end{itemize}
+
+\subsubsection{這代表什麼}\label{ux9019ux4ee3ux8868ux4ec0ux9ebc}
+
+如果你知道一開始有多少、每次增加多少，就能預測後面會發生什麼，還能估算總量。
+
+\subsection{3. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b}
+
+任務卡需求估算如下：
+
+\begin{itemize}
+\tightlist
+\item
+  第 1 個半小時需要 \texttt{48} 張
+\item
+  每往後一個半小時，多 \texttt{12} 張
+\item
+  活動先看前 \texttt{6} 個半小時
+\end{itemize}
+
+步驟 1：找已知量
+
+\begin{itemize}
+\tightlist
+\item
+  \(a_1 = 48\)
+\item
+  \(d = 12\)
+\item
+  \(n = 6\)
+\end{itemize}
+
+步驟 2：求第 6 項
+
+\[
+a_6 = 48 + (6 - 1)\times 12 = 48 + 60 = 108
+\]
+
+步驟 3：求前 6 項總和
+
+\[
+S_6 = \frac{6(48 + 108)}{2} = \frac{6\times 156}{2} = 468
+\]
+
+答案：
+
+\begin{itemize}
+\tightlist
+\item
+  第 \texttt{6} 個半小時要準備 \texttt{108} 張
+\item
+  前 \texttt{6} 個半小時共需 \texttt{468} 張
+\end{itemize}
+
+\subsection{\texorpdfstring{4.
+\texttt{checkpoint}}{4. checkpoint}}\label{checkpoint}
+
+如果你算出第 \texttt{6} 項只有 \texttt{60}，通常是因為你把
+\texttt{(n\ -\ 1)} 忘了。\\
+因為第 \texttt{1} 項不需要再加公差，第 \texttt{2} 項才加 \texttt{1} 次。
+
+\subsection{5. PBL 解題示範}\label{pbl-ux89e3ux984cux793aux7bc4}
+
+\subsubsection{情境}\label{ux60c5ux5883}
+
+你的小隊要決定任務卡印製方案。印刷廠提供三個方案：
+
+\begin{itemize}
+\tightlist
+\item
+  A：印 \texttt{420} 張
+\item
+  B：印 \texttt{480} 張
+\item
+  C：印 \texttt{560} 張
+\end{itemize}
+
+根據剛才估算，前 \texttt{6} 個半小時需要 \texttt{468} 張。
+
+\subsubsection{判斷流程}\label{ux5224ux65b7ux6d41ux7a0b}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  先比需求門檻：至少要 \texttt{468} 張。
+\item
+  A 不夠，排除。
+\item
+  B 夠用，且只多 \texttt{12} 張。
+\item
+  C 也夠，但多出 \texttt{92} 張，浪費較多。
+\end{enumerate}
+
+\subsubsection{決策}\label{ux6c7aux7b56}
+
+本題最佳方案是 \texttt{B}。
+
+\subsubsection{為什麼}\label{ux70baux4ec0ux9ebc}
+
+因為它是滿足需求的最小可行方案。\\
+數學不是只算得出來，還要幫你做出比較不浪費的選擇。
+
+\subsection{6. 數位加成}\label{ux6578ux4f4dux52a0ux6210}
+
+如果你想自己驗算，可以用這段 Python：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a1 }\OperatorTok{=} \DecValTok{48}
+\NormalTok{d }\OperatorTok{=} \DecValTok{12}
+\NormalTok{terms }\OperatorTok{=}\NormalTok{ [a1 }\OperatorTok{+}\NormalTok{ i }\OperatorTok{*}\NormalTok{ d }\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{6}\NormalTok{)]}
+\BuiltInTok{print}\NormalTok{(terms)}
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{sum}\NormalTok{(terms))}
+\end{Highlighting}
+\end{Shaded}
+
+你會看到前六項是 \texttt{{[}48,\ 60,\ 72,\ 84,\ 96,\ 108{]}}，總和是
+\texttt{468}。
+
+\subsection{7. 常見迷思}\label{ux5e38ux898bux8ff7ux601d}
+
+\begin{itemize}
+\tightlist
+\item
+  迷思 1：第 \texttt{n} 項就是 \texttt{a\_1\ +\ nd}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    更正：要用 \texttt{n\ -\ 1}，因為第一項還沒加公差。
+  \end{itemize}
+\item
+  迷思 2：總和就是第一項加最後一項
+
+  \begin{itemize}
+  \tightlist
+  \item
+    更正：那只是平均前的一步，還要乘上項數再除以 \texttt{2}。
+  \end{itemize}
+\end{itemize}
+
+\subsection{8. 章末練習}\label{ux7ae0ux672bux7df4ux7fd2}
+
+\subsubsection{基礎}\label{ux57faux790e}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  一個數列是 \texttt{10,\ 15,\ 20,\ 25,\ ...}，公差是多少？
+\item
+  承上題，第 \texttt{8} 項是多少？
+\end{enumerate}
+
+\subsubsection{計算}\label{ux8a08ux7b97}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  某攤位每 10
+  分鐘進場人數形成等差數列：\texttt{22,\ 28,\ 34,\ ...}，求第 \texttt{9}
+  項。
+\item
+  承上題，前 \texttt{9} 次進場總人數是多少？
+\end{enumerate}
+
+\subsubsection{判斷}\label{ux5224ux65b7}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  你估算前 \texttt{8} 次需要 \texttt{512} 張貼紙，方案甲印 \texttt{500}
+  張，方案乙印 \texttt{520} 張，方案丙印 \texttt{650}
+  張。你選哪個？為什麼？
+\end{enumerate}
+
+\subsubsection{應用}\label{ux61c9ux7528}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  用 60 到 100
+  字回答：如果你是任務局隊長，為什麼只算某一項不夠，還要算前幾項總和？
+\end{enumerate}
+
+\subsection{\texorpdfstring{9. \texttt{boss}}{9. boss}}\label{boss}
+
+兒藝節某區下午共有 \texttt{8} 個半小時時段。第 1 個時段需要 \texttt{36}
+份材料，每個時段比前一個多 \texttt{9} 份。
+
+請完成：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  求第 \texttt{8} 個時段需要幾份材料。
+\item
+  求前 \texttt{8} 個時段共需要幾份材料。
+\item
+  如果每包材料 \texttt{25} 份，至少要準備幾包？
+\end{enumerate}
+
+\subsection{\texorpdfstring{10. \texttt{badge}}{10. badge}}\label{badge}
+
+當你能從一串數字看出節奏，並估算總量，你就拿到第一枚徽章：\texttt{節奏分析師}。
+
+\subsection{11. 下一章預告}\label{ux4e0bux4e00ux7ae0ux9810ux544a}
+
+數量估完了，下一個問題更麻煩：\\
+任務包做越多，成本就越高；路線安排不同，時間也不同。\\
+你需要一種能把「改變」畫成圖的工具。
+
+\newpage
+
+\section{單元
+1-3　倍率傳訊與等比數列}\label{ux55aeux5143-1-3-ux500dux7387ux50b3ux8a0aux8207ux7b49ux6bd4ux6578ux5217}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：任務局想招募更多學生來玩數學闖關。第一天只有
+  \texttt{80}
+  人看到活動貼文，但只要每個人再分享，下一波看到的人數會按固定倍率成長。
+\item
+  \texttt{mission}：判斷一串數是不是等比數列，並用公比與一般項估算後續擴散量。
+\item
+  惠文對齊單元：\texttt{1-3}
+\item
+  本插卡核心模型：等比數列
+\item
+  本插卡核心決策：宣傳到第幾波就該加開志工與任務包？
+\end{itemize}
+
+\subsection{1. 直覺問題}\label{ux76f4ux89baux554fux984c-1}
+
+如果一則貼文的觸及人數依序是
+\texttt{80,\ 160,\ 320,\ 640,\ ...}，這和前面學的等差數列有什麼不一樣？
+
+\subsection{2. 核心觀念}\label{ux6838ux5fc3ux89c0ux5ff5}
+
+\begin{itemize}
+\tightlist
+\item
+  等比數列：後一項除以前一項，得到的比值都相同。
+\item
+  公比：這個固定比值，記作 \texttt{r}。
+\item
+  第 \(n\) 項公式：\(a_n = a_1 \times r^{n - 1}\)
+\end{itemize}
+
+\subsection{3. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b-1}
+
+已知：
+
+\begin{itemize}
+\tightlist
+\item
+  \(a_1 = 80\)
+\item
+  \(r = 2\)
+\item
+  求第 \texttt{5} 波觸及人數
+\end{itemize}
+
+計算：
+
+\[
+a_5 = 80 \times 2^{5 - 1} = 80 \times 16 = 1280
+\]
+
+答案：第 \texttt{5} 波會有 \texttt{1280} 人看到。
+
+\subsection{\texorpdfstring{4.
+\texttt{checkpoint}}{4. checkpoint}}\label{checkpoint-1}
+
+如果你看到的是「每次多一樣多」，那是等差；\\
+如果你看到的是「每次乘一樣多」，那才是等比。
+
+\subsection{5. PBL 快速判斷}\label{pbl-ux5febux901fux5224ux65b7}
+
+\subsubsection{情境}\label{ux60c5ux5883-1}
+
+任務局有三種志工準備方案：
+
+\begin{itemize}
+\tightlist
+\item
+  A：只準備 \texttt{300} 份體驗卡
+\item
+  B：準備 \texttt{700} 份體驗卡
+\item
+  C：準備 \texttt{1400} 份體驗卡
+\end{itemize}
+
+如果預估第 \texttt{5} 波會有 \texttt{1280} 人看到訊息，而且通常約有
+\texttt{1/2} 的人會到場，預估到場人數約為：
+
+\[
+1280 \times \frac{1}{2} = 640
+\]
+
+\subsubsection{決策}\label{ux6c7aux7b56-1}
+
+選 \texttt{B}。
+
+\subsubsection{理由}\label{ux7406ux7531}
+
+A 不夠，C 太多；B 最接近需求，浪費最少。
+
+\subsection{6. 快練}\label{ux5febux7df4}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  數列 \texttt{5,\ 15,\ 45,\ 135,\ ...} 的公比是多少？
+\item
+  承上題，第 \texttt{6} 項是多少？
+\item
+  用 50 到 80
+  字回答：如果活動宣傳是等比成長，為什麼不能只用等差方法估算？
+\end{enumerate}
+
+\newpage
+
+\section{單元
+2-1、2-2　水安宮站的成本函數}\label{ux55aeux5143-2-12-2-ux6c34ux5b89ux5baeux7ad9ux7684ux6210ux672cux51fdux6578}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：惠文官網目前公開的交通資訊指出，學生可由
+  \texttt{水安宮站} 下車，再步行或搭配 YouBike
+  到校。任務局決定設計「從惠文到文心森林公園」的數學導覽包，但材料成本要先控制。
+\item
+  \texttt{mission}：把數量與成本、時間與資源的關係寫成一次函數，並畫成圖。
+\item
+  惠文對齊單元：\texttt{2-1}、\texttt{2-2}
+\item
+  學習內容對應：\texttt{F-8-1}、\texttt{F-8-2}
+\item
+  本章核心模型：一次函數 \(y = ax + b\)
+\item
+  本章核心決策：哪個任務包方案最划算？
+\item
+  本章徽章：函數導航員
+\end{itemize}
+
+\begin{quote}
+{[}語音解說{]} 第二章開場
+
+音檔代號：\texttt{02-function-opening}
+
+現在你已經會估算總量，但活動現場還有更現實的問題：做越多任務包，成本就越高；安排越多小隊，總準備時間也會改變。這時候只用一串數字不夠，你要學會用一次函數，把改變的規律寫成
+y 等於 ax 加 b，還要畫成圖，看出斜率和截距代表什麼。
+\end{quote}
+
+\subsection{1. 直覺問題}\label{ux76f4ux89baux554fux984c-2}
+
+任務包每增加 \texttt{1} 份，就多花 \texttt{25} 元；一開始基本製作費是
+\texttt{180} 元。\\
+如果做 \texttt{x} 份任務包，總成本 \texttt{y} 是多少？
+
+\subsection{2. 定義與公式}\label{ux5b9aux7fa9ux8207ux516cux5f0f}
+
+\begin{itemize}
+\tightlist
+\item
+  一次函數：\(y = ax + b\)
+\item
+  \(a\)：每增加 \(1\) 單位，\(y\) 改變多少
+\item
+  \(b\)：一開始就存在的固定量
+\end{itemize}
+
+在本題中：
+
+\begin{itemize}
+\tightlist
+\item
+  \(a = 25\)
+\item
+  \(b = 180\)
+\item
+  所以 \(y = 25x + 180\)
+\end{itemize}
+
+\subsection{3. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b-2}
+
+如果要做 \texttt{12} 份任務包：
+
+\[
+y = 25\times 12 + 180 = 300 + 180 = 480
+\]
+
+答案：做 \texttt{12} 份共要 \texttt{480} 元。
+
+\subsection{4. 圖形怎麼看}\label{ux5716ux5f62ux600eux9ebcux770b}
+
+取幾個點：
+
+\begin{itemize}
+\tightlist
+\item
+  \(x = 0\) 時，\(y = 180\)
+\item
+  \(x = 4\) 時，\(y = 280\)
+\item
+  \(x = 8\) 時，\(y = 380\)
+\item
+  \(x = 12\) 時，\(y = 480\)
+\end{itemize}
+
+把這些點畫在座標平面上，你會看到一條往右上升的直線。
+
+這代表：
+
+\begin{itemize}
+\tightlist
+\item
+  做得越多，成本越高。
+\item
+  斜率 \texttt{25} 就是每多一份，多 \texttt{25} 元。
+\item
+  截距 \texttt{180} 就是還沒開始做就要先付的固定費。
+\end{itemize}
+
+\subsection{\texorpdfstring{5.
+\texttt{checkpoint}}{5. checkpoint}}\label{checkpoint-2}
+
+如果你把 \texttt{180} 看成斜率，就會整條線畫錯。\\
+斜率描述的是「每增加 1 單位的變化量」，不是一開始的數字。
+
+\subsection{6. PBL 解題示範}\label{pbl-ux89e3ux984cux793aux7bc4-1}
+
+\subsubsection{情境}\label{ux60c5ux5883-2}
+
+任務局預算上限是 \texttt{650} 元。\\
+你要決定最多可以做幾份任務包。
+
+\subsubsection{解法}\label{ux89e3ux6cd5}
+
+由 \(25x + 180 \le 650\)
+
+先減 \texttt{180}：
+
+\[
+25x \le 470
+\]
+
+再除以 \texttt{25}：
+
+\[
+x \le 18.8
+\]
+
+因為任務包不能做 \texttt{0.8} 份，所以最多做 \texttt{18} 份。
+
+\subsubsection{決策}\label{ux6c7aux7b56-2}
+
+如果你要保守不超支，最多做 \texttt{18} 份。
+
+\subsection{7. 生活延伸}\label{ux751fux6d3bux5ef6ux4f38}
+
+你也可以把一次函數拿來看時間：
+
+\begin{itemize}
+\tightlist
+\item
+  假設每多準備一個關卡，需要多 \texttt{7} 分鐘
+\item
+  基本場佈時間是 \texttt{30} 分鐘
+\item
+  總時間 \(y = 7x + 30\)
+\end{itemize}
+
+這樣就能判斷放學後的小隊來不來得及完成場佈。
+
+\subsection{8. 數位加成}\label{ux6578ux4f4dux52a0ux6210-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ x }\KeywordTok{in}\NormalTok{ [}\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{18}\NormalTok{]:}
+\NormalTok{    y }\OperatorTok{=} \DecValTok{25} \OperatorTok{*}\NormalTok{ x }\OperatorTok{+} \DecValTok{180}
+    \BuiltInTok{print}\NormalTok{(x, y)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{9. 常見迷思}\label{ux5e38ux898bux8ff7ux601d-1}
+
+\begin{itemize}
+\tightlist
+\item
+  迷思 1：一次函數一定要從原點開始
+
+  \begin{itemize}
+  \tightlist
+  \item
+    更正：不一定，若有固定成本，截距就不是 \texttt{0}。
+  \end{itemize}
+\item
+  迷思 2：圖形往右上就一定比較好
+
+  \begin{itemize}
+  \tightlist
+  \item
+    更正：在成本問題裡，太陡反而代表成本增加太快。
+  \end{itemize}
+\end{itemize}
+
+\subsection{10. 章末練習}\label{ux7ae0ux672bux7df4ux7fd2-1}
+
+\subsubsection{基礎}\label{ux57faux790e-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{y\ =\ 8x\ +\ 40} 的斜率是多少？截距是多少？
+\item
+  當 \texttt{x\ =\ 6} 時，\texttt{y} 是多少？
+\end{enumerate}
+
+\subsubsection{計算}\label{ux8a08ux7b97-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  某活動每增加一組志工，準備時間多 \texttt{9} 分鐘，基本時間 \texttt{24}
+  分鐘。寫出函數式並算出 \texttt{x\ =\ 5} 時的總時間。
+\item
+  某關卡每包材料 \texttt{18} 元，固定場地費 \texttt{120} 元，做
+  \texttt{15} 包總費用多少？
+\end{enumerate}
+
+\subsubsection{判斷}\label{ux5224ux65b7-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  方案 A：\texttt{y\ =\ 22x\ +\ 200}，方案
+  B：\texttt{y\ =\ 28x\ +\ 120}。若要做 \texttt{10} 份，哪個比較省？
+\end{enumerate}
+
+\subsubsection{應用}\label{ux61c9ux7528-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  用 80 字左右說明：斜率和截距在現實生活裡各代表什麼？
+\end{enumerate}
+
+\subsection{\texorpdfstring{11. \texttt{boss}}{11. boss}}\label{boss-1}
+
+你要替小隊規劃「校園國際任務包」。
+
+\begin{itemize}
+\tightlist
+\item
+  每份任務包成本 \texttt{32} 元
+\item
+  固定設計費 \texttt{240} 元
+\item
+  預算上限 \texttt{880} 元
+\end{itemize}
+
+請完成：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  寫出總成本函數。
+\item
+  算出最多能做幾份。
+\item
+  若想做 \texttt{20} 份，是否超支？超出多少？
+\end{enumerate}
+
+\subsection{\texorpdfstring{12.
+\texttt{badge}}{12. badge}}\label{badge-1}
+
+當你會把情境變成函數，再把函數變成判斷，你就得到 \texttt{函數導航員}。
+
+\subsection{13. 下一章預告}\label{ux4e0bux4e00ux7ae0ux9810ux544a-1}
+
+成本與時間搞定後，真正難的是空間。\\
+服務台到底要放在哪裡，才對兩個任務區都公平？
+
+\newpage
+
+\section{單元
+3-1　角度偵查與內角外角}\label{ux55aeux5143-3-1-ux89d2ux5ea6ux5075ux67e5ux8207ux5167ux89d2ux5916ux89d2}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：任務局在文心森林公園設計導覽路線時，發現轉彎角度畫錯，整條箭頭就會帶錯方向。
+\item
+  \texttt{mission}：理解三角形內角和、外角性質，並用角度推回缺少的資訊。
+\item
+  惠文對齊單元：\texttt{3-1}
+\item
+  本插卡核心模型：內角和與外角定理
+\item
+  本插卡核心決策：轉角標示到底要畫幾度才不會把人帶錯？
+\end{itemize}
+
+\subsection{1. 直覺問題}\label{ux76f4ux89baux554fux984c-3}
+
+一個三角形路線標示中，兩個角分別是 \texttt{58°} 與
+\texttt{47°}，第三個角是多少？
+
+\subsection{2. 核心觀念}\label{ux6838ux5fc3ux89c0ux5ff5-1}
+
+\begin{itemize}
+\tightlist
+\item
+  三角形內角和是 \texttt{180°}
+\item
+  一個外角等於與它不相鄰的兩個內角和
+\end{itemize}
+
+\subsection{3. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b-3}
+
+第三個角：
+
+\[
+180 - 58 - 47 = 75
+\]
+
+如果這個 \texttt{75°} 角外側再延伸成外角，則外角大小是：
+
+\[
+180 - 75 = 105
+\]
+
+也可以直接算：
+
+\[
+58 + 47 = 105
+\]
+
+\subsection{\texorpdfstring{4.
+\texttt{checkpoint}}{4. checkpoint}}\label{checkpoint-3}
+
+外角不是把三個內角再加一次。\\
+它只等於「另外兩個不相鄰內角」的和。
+
+\subsection{5. PBL 快速判斷}\label{pbl-ux5febux901fux5224ux65b7-1}
+
+你要做一塊三角形轉向牌，已知兩個內角是 \texttt{40°} 與 \texttt{65°}。
+
+請完成：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  求第三個內角。
+\item
+  求與第三個內角相鄰的外角。
+\item
+  判斷導覽箭頭應該標記成大於 \texttt{90°} 還是小於 \texttt{90°} 的轉向。
+\end{enumerate}
+
+\subsection{6. 快練}\label{ux5febux7df4-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  若三角形兩內角為 \texttt{52°}、\texttt{63°}，第三角是多少？
+\item
+  承上題，第三角的外角是多少？
+\item
+  用一句話說明：為什麼做路線牌要會看內角和外角？
+\end{enumerate}
+
+\newpage
+
+\section{單元
+3-2　尺規作圖與公平服務點}\label{ux55aeux5143-3-2-ux5c3aux898fux4f5cux5716ux8207ux516cux5e73ux670dux52d9ux9ede}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：文心森林公園活動區常常需要臨時服務台。任務局要找一個位置，讓夢之島與遊戲島的學生都不會覺得太遠。
+\item
+  \texttt{mission}：學會用尺規作圖找中垂線、角平分線，理解「等距」背後的幾何意義。
+\item
+  惠文對齊單元：\texttt{3-2}
+\item
+  學習內容對應：\texttt{S-8-12}
+\item
+  本章核心模型：尺規作圖與等距
+\item
+  本章核心決策：服務點要設在哪裡最公平？
+\item
+  本章徽章：空間策劃師
+\end{itemize}
+
+\begin{quote}
+{[}語音解說{]} 第三章開場
+
+音檔代號：\texttt{03-construction-opening}
+
+在活動現場，最容易吵起來的不是公式，而是公平。服務台如果離夢之島太近，遊戲島的學生會覺得不方便；如果又偏向另一邊，抱怨就換方向來。這一章你要學的尺規作圖，不只是畫漂亮，而是用幾何方法找出等距的位置，也就是更公平的配置。
+\end{quote}
+
+\subsection{1. 直覺問題}\label{ux76f4ux89baux554fux984c-4}
+
+如果服務台要離 A、B 兩個任務點一樣遠，它應該設在哪裡？
+
+\subsection{2. 幾何觀念}\label{ux5e7eux4f55ux89c0ux5ff5}
+
+\begin{itemize}
+\tightlist
+\item
+  與線段兩端點距離相等的點，會落在線段的中垂線上。
+\item
+  所以，若要找離 A、B 等距的位置，就先作出 \texttt{AB} 的中垂線。
+\end{itemize}
+
+\subsection{3.
+手算加作圖示範}\label{ux624bux7b97ux52a0ux4f5cux5716ux793aux7bc4}
+
+已知兩個任務點 \texttt{A} 與 \texttt{B} 距離 \texttt{24} 公尺。
+
+\subsubsection{先用數字理解}\label{ux5148ux7528ux6578ux5b57ux7406ux89e3}
+
+若服務台設在線段 \texttt{AB} 的正中間，則：
+
+\begin{itemize}
+\tightlist
+\item
+  \(AM = 12\)
+\item
+  \(BM = 12\)
+\end{itemize}
+
+因此正中點一定是等距點之一。
+
+\subsubsection{再用尺規作圖}\label{ux518dux7528ux5c3aux898fux4f5cux5716}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  畫出線段 \texttt{AB}。
+\item
+  以 \texttt{A} 為圓心，取大於一半線段長的半徑，向上下各畫弧。
+\item
+  以 \texttt{B} 為圓心，用同樣半徑畫弧，和前面的弧交於上下兩點。
+\item
+  連結兩交點，即得 \texttt{AB} 的中垂線。
+\end{enumerate}
+
+\subsection{\texorpdfstring{4.
+\texttt{checkpoint}}{4. checkpoint}}\label{checkpoint-4}
+
+中垂線不是「看起來在中間的線」，而是：
+
+\begin{itemize}
+\tightlist
+\item
+  通過線段中點
+\item
+  且垂直於原線段
+\end{itemize}
+
+缺一不可。
+
+\subsection{5. PBL 解題示範}\label{pbl-ux89e3ux984cux793aux7bc4-2}
+
+\subsubsection{情境}\label{ux60c5ux5883-3}
+
+公園平面圖中，夢之島與遊戲島標成兩點 \texttt{A}、\texttt{B}。\\
+現在有三個候選服務點：
+
+\begin{itemize}
+\tightlist
+\item
+  P：在線段 \texttt{AB} 的中垂線上
+\item
+  Q：在靠近 \texttt{A} 的地方
+\item
+  R：在靠近 \texttt{B} 的地方
+\end{itemize}
+
+\subsubsection{判斷}\label{ux5224ux65b7-2}
+
+如果任務要求是「離 A、B 一樣遠」，只有在中垂線上的點符合。
+
+\subsubsection{決策}\label{ux6c7aux7b56-3}
+
+應選 \texttt{P}。
+
+\subsubsection{為什麼}\label{ux70baux4ec0ux9ebc-1}
+
+因為幾何條件先決定了公平規則，不是憑感覺站在中間就算公平。
+
+\subsection{6.
+延伸：角平分線}\label{ux5ef6ux4f38ux89d2ux5e73ux5206ux7dda}
+
+如果服務台要設在兩條步道夾角中，且希望左右兩邊都一樣方便，常常會用到角平分線。\\
+角平分線的點到角兩邊距離相等。
+
+\subsection{7. 數位加成}\label{ux6578ux4f4dux52a0ux6210-2}
+
+可用 GeoGebra 或 Desmos 幾何功能重畫一次。\\
+目標不是軟體多厲害，而是確認你真的理解「等距」。
+
+\subsection{8. 常見迷思}\label{ux5e38ux898bux8ff7ux601d-2}
+
+\begin{itemize}
+\tightlist
+\item
+  迷思 1：中點就是唯一答案
+
+  \begin{itemize}
+  \tightlist
+  \item
+    更正：整條中垂線上的點都和兩端等距。
+  \end{itemize}
+\item
+  迷思 2：畫弧半徑隨便都可以
+
+  \begin{itemize}
+  \tightlist
+  \item
+    更正：半徑必須大於線段一半，弧才會相交。
+  \end{itemize}
+\end{itemize}
+
+\subsection{9. 章末練習}\label{ux7ae0ux672bux7df4ux7fd2-2}
+
+\subsubsection{基礎}\label{ux57faux790e-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  什麼樣的點會在線段的中垂線上？
+\item
+  角平分線上的點有什麼性質？
+\end{enumerate}
+
+\subsubsection{計算}\label{ux8a08ux7b97-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  線段長 \texttt{18} 公分，中點到端點各是多少？
+\item
+  若某點在中垂線上，且離 A 點 \texttt{14} 公分，它離 B 點多少公分？
+\end{enumerate}
+
+\subsubsection{判斷}\label{ux5224ux65b7-3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  一個服務台候選點離 A 點 \texttt{10} 公尺、離 B 點 \texttt{13}
+  公尺，它可能在 \texttt{AB} 的中垂線上嗎？
+\end{enumerate}
+
+\subsubsection{應用}\label{ux61c9ux7528-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  用 60 到 100 字回答：為什麼活動配置也需要幾何？
+\end{enumerate}
+
+\subsection{\texorpdfstring{10. \texttt{boss}}{10. boss}}\label{boss-2}
+
+你要替兩個熱門攤位 \texttt{C}、\texttt{D} 設一個問訊點。
+
+請完成：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  說明應該畫哪一條幾何線。
+\item
+  用文字寫出尺規作圖步驟。
+\item
+  解釋為什麼這樣的點比較公平。
+\end{enumerate}
+
+\subsection{\texorpdfstring{11.
+\texttt{badge}}{11. badge}}\label{badge-2}
+
+當你能把「公平」轉成幾何條件，你就得到 \texttt{空間策劃師}。
+
+\subsection{12. 下一章預告}\label{ux4e0bux4e00ux7ae0ux9810ux544a-2}
+
+位置找到了，但牌架和攤位真的穩嗎？\\
+下一關，你要學會用全等三角形判斷結構。
+
+\newpage
+
+\section{單元
+3-3　全等三角形與穩定支架}\label{ux55aeux5143-3-3-ux5168ux7b49ux4e09ux89d2ux5f62ux8207ux7a69ux5b9aux652fux67b6}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：任務局想在校內舉辦延伸成果展，得搭出指示牌與小型展示架。隊員提出三種支架畫法，但只有一種最穩。
+\item
+  \texttt{mission}：學會用全等條件判斷兩個三角形是否真的一樣，並理解其在結構中的用途。
+\item
+  惠文對齊單元：\texttt{3-3}
+\item
+  學習內容對應：\texttt{S-8-5}
+\item
+  本章核心模型：三角形全等
+\item
+  本章核心決策：哪種支架設計可信？
+\item
+  本章徽章：結構守門員
+\end{itemize}
+
+\begin{quote}
+{[}語音解說{]} 第四章開場
+
+音檔代號：\texttt{04-congruence-opening}
+
+如果把一塊長方形看板直接立起來，它很容易晃。很多工程和舞台設計會加上三角形支撐，因為三角形比四邊形更不容易變形。可是，光看到三角形還不夠，你要能判斷兩個三角形是不是真的全等，因為只有對應邊角一致，結構才會穩。這一章你要用全等性質當任務局的安全檢查員。
+\end{quote}
+
+\subsection{1. 直覺問題}\label{ux76f4ux89baux554fux984c-5}
+
+兩邊支架看起來很像，就代表一定一樣嗎？\\
+不一定。你要看能不能符合全等條件。
+
+\subsection{2.
+三角形全等常見判定}\label{ux4e09ux89d2ux5f62ux5168ux7b49ux5e38ux898bux5224ux5b9a}
+
+\begin{itemize}
+\tightlist
+\item
+  \(SSS\)：三邊對應相等
+\item
+  \(SAS\)：兩邊及夾角對應相等
+\item
+  \(ASA\)：兩角及夾邊對應相等
+\item
+  \texttt{AAS}
+\item
+  \(RHS\)：直角三角形的斜邊與一股對應相等
+\end{itemize}
+
+\subsection{3. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b-4}
+
+展示架左右兩側各有一個三角支架：
+
+\begin{itemize}
+\tightlist
+\item
+  左側支架：兩邊長 \texttt{6}、\texttt{8}，夾角 \texttt{90°}
+\item
+  右側支架：兩邊長 \texttt{6}、\texttt{8}，夾角 \texttt{90°}
+\end{itemize}
+
+判斷：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  已知兩邊相等。
+\item
+  已知夾角相等。
+\item
+  符合 \(SAS\)。
+\end{enumerate}
+
+所以兩個三角形全等。
+
+\subsection{4. 這代表什麼}\label{ux9019ux4ee3ux8868ux4ec0ux9ebc-1}
+
+如果左右支架全等，展示板受力比較對稱，不容易歪斜。
+
+\subsection{\texorpdfstring{5.
+\texttt{checkpoint}}{5. checkpoint}}\label{checkpoint-5}
+
+只知道兩角相等，不一定能判定全等。\\
+因為角一樣，大小不一定一樣，可能只是相似。
+
+\subsection{6. PBL 解題示範}\label{pbl-ux89e3ux984cux793aux7bc4-3}
+
+\subsubsection{情境}\label{ux60c5ux5883-4}
+
+隊員提出三種支架說法：
+
+\begin{itemize}
+\tightlist
+\item
+  A：兩邊分別是 \texttt{6}、\texttt{8}，夾角 \texttt{90°}
+\item
+  B：兩角分別是 \texttt{40°}、\texttt{50°}
+\item
+  C：三邊分別是 \texttt{5}、\texttt{6}、\texttt{8}
+\end{itemize}
+
+另一側支架已知是 \texttt{6}、\texttt{8}、夾角 \texttt{90°}。
+
+\subsubsection{判斷}\label{ux5224ux65b7-4}
+
+\begin{itemize}
+\tightlist
+\item
+  A 符合 \(SAS\)
+\item
+  B 只有角，不能保證全等
+\item
+  C 三邊不同，不符
+\end{itemize}
+
+\subsubsection{決策}\label{ux6c7aux7b56-4}
+
+選 \texttt{A}。
+
+\subsection{7. 邊角關係補充}\label{ux908aux89d2ux95dcux4fc2ux88dcux5145}
+
+在三角形中：
+
+\begin{itemize}
+\tightlist
+\item
+  邊越長，對角越大
+\item
+  對角越大，對邊越長
+\end{itemize}
+
+這能幫助你快速判斷設計圖是不是合理。
+
+\subsection{8. 數位加成}\label{ux6578ux4f4dux52a0ux6210-3}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{left }\OperatorTok{=}\NormalTok{ (}\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{90}\NormalTok{)}
+\NormalTok{right }\OperatorTok{=}\NormalTok{ (}\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{90}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(left }\OperatorTok{==}\NormalTok{ right)}
+\end{Highlighting}
+\end{Shaded}
+
+這不是正式幾何證明，但能提醒你：要比的是「對應資料是否一致」。
+
+\subsection{9. 常見迷思}\label{ux5e38ux898bux8ff7ux601d-3}
+
+\begin{itemize}
+\tightlist
+\item
+  迷思 1：看起來對稱就一定全等
+
+  \begin{itemize}
+  \tightlist
+  \item
+    更正：要有可檢查的條件。
+  \end{itemize}
+\item
+  迷思 2：知道三個角就能判定全等
+
+  \begin{itemize}
+  \tightlist
+  \item
+    更正：三角形三角和固定是 \texttt{180°}，角相同只保證相似。
+  \end{itemize}
+\end{itemize}
+
+\subsection{10. 章末練習}\label{ux7ae0ux672bux7df4ux7fd2-3}
+
+\subsubsection{基礎}\label{ux57faux790e-3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{SAS} 代表什麼？
+\item
+  \texttt{SSS} 代表什麼？
+\end{enumerate}
+
+\subsubsection{計算}\label{ux8a08ux7b97-3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  兩個三角形三邊分別為 \texttt{7,\ 9,\ 12} 與
+  \texttt{7,\ 9,\ 12}，可否判定全等？
+\item
+  兩個直角三角形斜邊都 \texttt{10}，其中一股都
+  \texttt{6}，可否判定全等？
+\end{enumerate}
+
+\subsubsection{判斷}\label{ux5224ux65b7-5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  只知道兩個三角形三個角都相等，能否判定全等？為什麼？
+\end{enumerate}
+
+\subsubsection{應用}\label{ux61c9ux7528-3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  用 80 字左右說明：為什麼展示架設計常使用三角形？
+\end{enumerate}
+
+\subsection{\texorpdfstring{11. \texttt{boss}}{11. boss}}\label{boss-3}
+
+你要替成果展選一種指示牌支架。
+
+請完成：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  從 \texttt{SSS}、\texttt{SAS}、\texttt{ASA}、\texttt{RHS}
+  中，選一種你最容易拿來檢查現場支架的方法。
+\item
+  自訂一組合理數據。
+\item
+  用 3 到 5 句話寫出你的全等判定。
+\end{enumerate}
+
+\subsection{\texorpdfstring{12.
+\texttt{badge}}{12. badge}}\label{badge-3}
+
+當你能用幾何而不是眼睛猜安全，你就得到 \texttt{結構守門員}。
+
+\subsection{13. 下一章預告}\label{ux4e0bux4e00ux7ae0ux9810ux544a-3}
+
+支架穩了，但展板、地貼和路線箭頭還可能歪掉。\\
+最後一章，你要處理四邊形的世界。
+
+\newpage
+
+\section{單元
+3-4　中垂線與角平分線指令}\label{ux55aeux5143-3-4-ux4e2dux5782ux7ddaux8207ux89d2ux5e73ux5206ux7ddaux6307ux4ee4}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：任務局想把導覽地圖做成左右平衡的圖樣，但一不小心就會偏向某一側。
+\item
+  \texttt{mission}：理解中垂線、角平分線與等腰三角形的關係。
+\item
+  惠文對齊單元：\texttt{3-4}
+\item
+  本插卡核心模型：中垂線、角平分線與等腰性質
+\item
+  本插卡核心決策：哪一條線才是真正的對稱線？
+\end{itemize}
+
+\subsection{1. 核心觀念}\label{ux6838ux5fc3ux89c0ux5ff5-2}
+
+\begin{itemize}
+\tightlist
+\item
+  線段中垂線上的點，到線段兩端距離相等。
+\item
+  角平分線上的點，到角的兩邊距離相等。
+\item
+  等腰三角形的底角相等；反過來，底角相等也能判斷成等腰。
+\end{itemize}
+
+\subsection{2. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b-5}
+
+在三角形 \texttt{ABC} 中，若 \texttt{AB\ =\ AC\ =\ 13}，底邊
+\texttt{BC\ =\ 10}，從 \texttt{A} 向 \texttt{BC} 畫下來的對稱線會把
+\texttt{BC} 平分成：
+
+\begin{itemize}
+\tightlist
+\item
+  \(BM = 5\)
+\item
+  \(CM = 5\)
+\end{itemize}
+
+這條線同時具有三種角色：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  底邊的中線
+\item
+  底邊的中垂線
+\item
+  \(\angle A\) 的角平分線
+\end{enumerate}
+
+\subsection{\texorpdfstring{3.
+\texttt{checkpoint}}{3. checkpoint}}\label{checkpoint-6}
+
+不是所有中線都一定是角平分線。\\
+只有在等腰三角形這種特殊情況，它們才會重合。
+
+\subsection{4. PBL 快速判斷}\label{pbl-ux5febux901fux5224ux65b7-2}
+
+你要設計一個三角形主視覺，要求左右完全對稱。
+
+若兩側邊長相等，最適合拿來當對稱線的是：
+
+\begin{itemize}
+\tightlist
+\item
+  A：連接頂點到底邊中點的線
+\item
+  B：任選一條側邊
+\item
+  C：底邊本身
+\end{itemize}
+
+最佳選擇是
+\texttt{A}，因為在等腰三角形中，這條線同時是中垂線與角平分線。
+
+\subsection{5. 快練}\label{ux5febux7df4-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  角平分線上的點，有什麼等距性質？
+\item
+  若三角形兩底角相等，可以判斷它是哪一類三角形？
+\item
+  用一句話說明：中垂線和角平分線各自在解什麼公平問題？
+\end{enumerate}
+
+\newpage
+
+\section{單元
+3-5　三角形的邊角關係}\label{ux55aeux5143-3-5-ux4e09ux89d2ux5f62ux7684ux908aux89d2ux95dcux4fc2}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：你準備用三根鋁條做一個指示牌支架，卻發現不是任意三段長度都能組成三角形。
+\item
+  \texttt{mission}：理解三角形不等式與「大邊對大角」的關係。
+\item
+  惠文對齊單元：\texttt{3-5}
+\item
+  本插卡核心模型：三角形邊角關係
+\item
+  本插卡核心決策：這組材料能不能做成穩定支架？
+\end{itemize}
+
+\subsection{1. 核心觀念}\label{ux6838ux5fc3ux89c0ux5ff5-3}
+
+\begin{itemize}
+\tightlist
+\item
+  任意兩邊和要大於第三邊。
+\item
+  任意兩邊差要小於第三邊。
+\item
+  較長的邊對較大的角。
+\end{itemize}
+
+\subsection{2. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b-6}
+
+三根鋁條長度分別是 \texttt{6}、\texttt{8}、\texttt{13}。
+
+檢查：
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{6\ +\ 8\ =\ 14\ \textgreater{}\ 13}
+\item
+  \texttt{6\ +\ 13\ =\ 19\ \textgreater{}\ 8}
+\item
+  \texttt{8\ +\ 13\ =\ 21\ \textgreater{}\ 6}
+\end{itemize}
+
+所以這三根可以組成三角形。
+
+如果改成 \texttt{6}、\texttt{8}、\texttt{15}：
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{6\ +\ 8\ =\ 14\ \textless{}\ 15}
+\end{itemize}
+
+就不能組成三角形。
+
+\subsection{\texorpdfstring{3.
+\texttt{checkpoint}}{3. checkpoint}}\label{checkpoint-7}
+
+只看「最長邊很長」還不夠，\\
+一定要檢查最短兩邊的和是否真的大於最長邊。
+
+\subsection{4. PBL 快速判斷}\label{pbl-ux5febux901fux5224ux65b7-3}
+
+有三組支架材料：
+
+\begin{itemize}
+\tightlist
+\item
+  A：\texttt{5,\ 5,\ 9}
+\item
+  B：\texttt{4,\ 6,\ 11}
+\item
+  C：\texttt{7,\ 8,\ 12}
+\end{itemize}
+
+可組成三角形的是 \texttt{A} 和 \texttt{C}；\texttt{B} 不行，因為
+\texttt{4\ +\ 6\ =\ 10\ \textless{}\ 11}。
+
+\subsection{5. 快練}\label{ux5febux7df4-3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  哪一組長度不能成三角形：\texttt{3,\ 4,\ 5} 或 \texttt{2,\ 3,\ 6}？
+\item
+  若三角形一邊最長，與它相對的角會比較大還是比較小？
+\item
+  用 40 到 70 字回答：為什麼做支架前要先檢查邊角關係？
+\end{enumerate}
+
+\newpage
+
+\section{單元
+4-1　平行線與截角暗號}\label{ux55aeux5143-4-1-ux5e73ux884cux7ddaux8207ux622aux89d2ux6697ux865f}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：任務局要在地面貼兩條平行動線，讓學生從入口走到任務區時不會互相干擾。
+\item
+  \texttt{mission}：看懂同位角、內錯角、同側內角，並用它們判斷兩條線是否平行。
+\item
+  惠文對齊單元：\texttt{4-1}
+\item
+  本插卡核心模型：平行線與截角性質
+\item
+  本插卡核心決策：地貼箭頭到底有沒有貼成真正的平行動線？
+\end{itemize}
+
+\subsection{1. 核心觀念}\label{ux6838ux5fc3ux89c0ux5ff5-4}
+
+\begin{itemize}
+\tightlist
+\item
+  兩平行線被截線切過時：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    同位角相等
+  \item
+    內錯角相等
+  \item
+    同側內角互補
+  \end{itemize}
+\end{itemize}
+
+\subsection{2. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b-7}
+
+若兩條地貼線被一條斜線切過，量得一組同位角分別為 \texttt{68°} 與
+\texttt{68°}，則這提供了兩線平行的證據。
+
+若一組同側內角為 \texttt{112°} 與 \texttt{68°}，因為：
+
+\[
+112 + 68 = 180
+\]
+
+也支持兩線平行。
+
+\subsection{\texorpdfstring{3.
+\texttt{checkpoint}}{3. checkpoint}}\label{checkpoint-8}
+
+角度看起來差不多，不代表可以判定平行。\\
+你必須指出它們是哪一種截角關係。
+
+\subsection{4. PBL 快速判斷}\label{pbl-ux5febux901fux5224ux65b7-4}
+
+你有三組地貼檢測結果：
+
+\begin{itemize}
+\tightlist
+\item
+  A：一組內錯角相等
+\item
+  B：只有一個角看起來很大
+\item
+  C：同側內角和是 \texttt{180°}
+\end{itemize}
+
+可以用來支持平行的是 \texttt{A} 與 \texttt{C}。
+
+\subsection{5. 快練}\label{ux5febux7df4-4}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  兩平行線的同位角有什麼關係？
+\item
+  兩平行線的同側內角相加是多少？
+\item
+  用一句話說明：為什麼佈展動線也需要平行線知識？
+\end{enumerate}
+
+\newpage
+
+\section{單元
+4-2　平行四邊形與展區版面}\label{ux55aeux5143-4-2-ux5e73ux884cux56dbux908aux5f62ux8207ux5c55ux5340ux7248ux9762}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：成果展要做地貼、展板和路線框。看起來四四方方的版面，如果沒有檢查對邊與對角線，很容易貼歪。
+\item
+  \texttt{mission}：理解平行四邊形的性質，並用它來檢查版面與動線。
+\item
+  惠文對齊單元：\texttt{4-2}
+\item
+  學習內容對應：八年級下學期四邊形單元
+\item
+  本章核心模型：平行四邊形性質
+\item
+  本章核心決策：哪個展板框架最不容易歪？
+\item
+  本章徽章：版面指揮官
+\end{itemize}
+
+\begin{quote}
+{[}語音解說{]} 第五章開場
+
+音檔代號：\texttt{05-parallelogram-opening}
+
+很多人以為四邊形只要看起來像長方形就沒事，但在佈展現場，線只要一歪，整塊版面就會讓人覺得很亂。這一章你要學會用平行四邊形的性質檢查框架，知道對邊、對角和對角線各能提供什麼訊息。數學在這裡不只是計算，而是幫你守住視覺秩序。
+\end{quote}
+
+\subsection{1. 關鍵性質}\label{ux95dcux9375ux6027ux8cea}
+
+\begin{itemize}
+\tightlist
+\item
+  平行四邊形的對邊平行
+\item
+  對邊長相等
+\item
+  對角相等
+\item
+  對角線互相平分
+\end{itemize}
+
+\subsection{2. 直覺問題}\label{ux76f4ux89baux554fux984c-6}
+
+如果一塊展板框架的兩條對角線沒有互相平分，它還可能是平行四邊形嗎？\\
+通常不是。
+
+\subsection{3. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b-8}
+
+某展板框架對角線在點 \texttt{O} 相交：
+
+\begin{itemize}
+\tightlist
+\item
+  \(AO = 15\)
+\item
+  \(OC = 15\)
+\item
+  \(BO = 12\)
+\item
+  \(OD = 12\)
+\end{itemize}
+
+因為兩條對角線互相平分，所以這組資料支持它是平行四邊形。
+
+\subsection{4. PBL 解題示範}\label{pbl-ux89e3ux984cux793aux7bc4-4}
+
+\subsubsection{情境}\label{ux60c5ux5883-5}
+
+你有三種展板框架資料：
+
+\begin{itemize}
+\tightlist
+\item
+  A：對邊都相等，對角線互相平分
+\item
+  B：只有一組對邊相等
+\item
+  C：只有四邊看起來差不多
+\end{itemize}
+
+\subsubsection{決策}\label{ux6c7aux7b56-5}
+
+選 \texttt{A}。
+
+\subsubsection{理由}\label{ux7406ux7531-1}
+
+因為 A 有可檢查的幾何條件，B 和 C 都太不可靠。
+
+\subsection{\texorpdfstring{5.
+\texttt{checkpoint}}{5. checkpoint}}\label{checkpoint-9}
+
+「看起來平行」不是證明。\\
+要能指出具體性質，例如對邊平行、對角線互相平分。
+
+\subsection{6. 章末練習}\label{ux7ae0ux672bux7df4ux7fd2-4}
+
+\subsubsection{基礎}\label{ux57faux790e-4}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  平行四邊形有哪些基本性質？
+\item
+  對角線互相平分代表什麼？
+\end{enumerate}
+
+\subsubsection{計算}\label{ux8a08ux7b97-4}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  若 \texttt{AO\ =\ 9} 且 \texttt{OC\ =\ 9}，\texttt{BO\ =\ 7} 且
+  \texttt{OD\ =\ 7}，這組資料支持什麼判斷？
+\end{enumerate}
+
+\subsubsection{判斷}\label{ux5224ux65b7-6}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  某框架只有一組對邊平行，可以直接判定是平行四邊形嗎？
+\end{enumerate}
+
+\subsubsection{應用}\label{ux61c9ux7528-4}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  用 60 到 100 字回答：為什麼展板版面也需要幾何檢查？
+\end{enumerate}
+
+\subsection{\texorpdfstring{7. \texttt{boss}}{7. boss}}\label{boss-4}
+
+你要為成果展設計一塊任務說明板。
+
+請完成：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  提出至少兩個你要檢查的平行四邊形條件。
+\item
+  說明如果不檢查，現場可能出現什麼問題。
+\item
+  用一句話說明數學在視覺設計中的角色。
+\end{enumerate}
+
+\subsection{\texorpdfstring{8. \texttt{badge}}{8. badge}}\label{badge-4}
+
+當你能用幾何守住秩序與美感，你就得到 \texttt{版面指揮官}。
+
+\newpage
+
+\section{單元
+4-3　特殊四邊形與梯形總檢}\label{ux55aeux5143-4-3-ux7279ux6b8aux56dbux908aux5f62ux8207ux68afux5f62ux7e3dux6aa2}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：成果展後期，任務局開始設計不同形狀的告示板，有的是菱形方向牌，有的是長方形展框，也有等腰梯形舞台邊板。
+\item
+  \texttt{mission}：辨認特殊四邊形與梯形的性質，避免只靠眼睛判斷。
+\item
+  惠文對齊單元：\texttt{4-3}
+\item
+  本插卡核心模型：特殊四邊形與梯形判別
+\item
+  本插卡核心決策：哪種版型適合哪種展示需求？
+\end{itemize}
+
+\subsection{1. 核心觀念}\label{ux6838ux5fc3ux89c0ux5ff5-5}
+
+\begin{itemize}
+\tightlist
+\item
+  菱形：四邊等長，對角線互相垂直且平分角。
+\item
+  長方形：四角都是直角，對角線等長。
+\item
+  正方形：同時具有菱形與長方形的性質。
+\item
+  等腰梯形：同一底上的兩底角分別相等，兩條對角線等長。
+\end{itemize}
+
+\subsection{2. 手算範例}\label{ux624bux7b97ux7bc4ux4f8b-9}
+
+某展框四個角都是 \texttt{90°}，兩條對角線都長 \texttt{20}
+公分，這些條件最直接支持它是長方形。
+
+如果另一個方向牌四邊都長 \texttt{12} 公分，則它至少支持是菱形；\\
+若再知道四角都是 \texttt{90°}，才能再進一步判斷成正方形。
+
+\subsection{\texorpdfstring{3.
+\texttt{checkpoint}}{3. checkpoint}}\label{checkpoint-10}
+
+「看起來像正方形」不等於就是正方形。\\
+你至少要同時掌握邊長或角度等可檢查條件。
+
+\subsection{4. PBL 快速判斷}\label{pbl-ux5febux901fux5224ux65b7-5}
+
+任務局有三種展示板需求：
+
+\begin{itemize}
+\tightlist
+\item
+  需要穩定放海報：長方形框
+\item
+  需要做方向指示：菱形牌
+\item
+  需要做前高後低的舞台邊框：等腰梯形板
+\end{itemize}
+
+如果目標是讓觀眾一眼辨認資訊，通常優先選長方形或正方形；\\
+如果是做方向感，菱形反而更醒目。
+
+\subsection{5. 快練}\label{ux5febux7df4-5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  長方形與菱形都可能有什麼共同點？
+\item
+  等腰梯形的哪一種角度特徵最常拿來判斷？
+\item
+  用 50 到 80 字回答：為什麼特殊四邊形要分開學，而不能全部都叫四邊形？
+\end{enumerate}
+
+\newpage
+
+\section{終章　惠文數學冒險館企畫書}\label{ux7d42ux7ae0-ux60e0ux6587ux6578ux5b78ux5192ux96aaux9928ux4f01ux756bux66f8}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{scene}：學期最後，任務局要把所有成果整合成一場能在校園圖書館、國際行動力中心或班級成果展上展示的「惠文數學冒險館」。
+\item
+  \texttt{mission}：把本學期五個工具整合成一份企畫。
+\item
+  本章唯一核心決策：你的數學任務展，要主打哪一個真實問題？
+\item
+  可評分產出：\texttt{1} 份企畫書 + \texttt{1} 段語音導覽稿 + \texttt{1}
+  張數學決策圖
+\end{itemize}
+
+\begin{quote}
+{[}語音解說{]} 終章任務
+
+音檔代號：\texttt{06-final-boss}
+
+你已經完成五枚徽章，現在要進入最後任務。請不要把期末成果做成公式堆疊，而是做成一個真正能讓別人看懂的任務展。你的作品至少要回答三件事：第一，你用了哪一個真實情境；第二，你用了哪些數學工具；第三，這些工具怎麼幫你做出比較好的決策。這時候，你的語音稿就很重要，因為真正理解一件事的人，才能把它說清楚。
+\end{quote}
+
+\subsection{最終任務要求}\label{ux6700ux7d42ux4efbux52d9ux8981ux6c42}
+
+請從下列題目任選一個，或自訂一個和惠文生活圈有關的題目：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  為兒藝節設計一條數學闖關路線。
+\item
+  為惠文校園成果展設計最省成本的任務包方案。
+\item
+  為圖書館社區共讀站設計公平的服務點與導覽版面。
+\item
+  為國際教育活動設計一套用數學說故事的互動關卡。
+\end{enumerate}
+
+\subsection{企畫書固定結構}\label{ux4f01ux756bux66f8ux56faux5b9aux7d50ux69cb}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  題目名稱
+\item
+  你要解決的真實問題
+\item
+  你使用的數學工具
+\item
+  一個完整手算範例
+\item
+  一個 PBL 決策
+\item
+  一段 \texttt{voice} 語音導覽稿
+\item
+  你的最終建議
+\end{enumerate}
+
+\subsection{評分規準}\label{ux8a55ux5206ux898fux6e96}
+
+\begin{itemize}
+\tightlist
+\item
+  故事情境明確：\texttt{20\%}
+\item
+  數學正確：\texttt{30\%}
+\item
+  決策理由完整：\texttt{25\%}
+\item
+  語音解說清楚：\texttt{15\%}
+\item
+  版面與表達：\texttt{10\%}
+\end{itemize}
+
+\newpage
+
+\section{自學者專用語音稿模板}\label{ux81eaux5b78ux8005ux5c08ux7528ux8a9eux97f3ux7a3fux6a21ux677f}
+
+你新增自己的語音段落時，可以直接套這個格式：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\AttributeTok{\textgreater{} }\CommentTok{[}\OtherTok{語音解說}\CommentTok{]}\AttributeTok{ 我的期末導覽}
+\AttributeTok{\textgreater{}}
+\AttributeTok{\textgreater{} 音檔代號：}\InformationTok{\textasciigrave{}my{-}boss{-}intro\textasciigrave{}}
+\AttributeTok{\textgreater{}}
+\AttributeTok{\textgreater{} 大家好，我這次設計的任務主題是……}
+\AttributeTok{\textgreater{} 我先用數列估算總量，再用一次函數控制成本……}
+\AttributeTok{\textgreater{} 最後我用幾何決定服務台的位置與展板框架。}
+\end{Highlighting}
+\end{Shaded}
+
+建議每段語音：
+
+\begin{itemize}
+\tightlist
+\item
+  控制在 \texttt{250} 到 \texttt{350} 字
+\item
+  一段只講一個重點
+\item
+  句子短一點，方便 Edge TTS 朗讀
+\end{itemize}
+
+\newpage
+
+\section{教師、家長或自學陪跑者提醒}\label{ux6559ux5e2bux5bb6ux9577ux6216ux81eaux5b78ux966aux8dd1ux8005ux63d0ux9192}
+
+\begin{itemize}
+\tightlist
+\item
+  這份教材可以完全自學，但最好要求學生「先聽、再算、再說」。
+\item
+  每章至少要讓學生口頭回答一次：我看到哪些數字？我怎麼判斷？我為什麼這樣選？
+\item
+  如果學生只會代公式，不會說理由，代表還沒有真的完成 PBL。
+\end{itemize}
+
+\newpage
+
+\section{來源與設計依據}\label{ux4f86ux6e90ux8207ux8a2dux8a08ux4f9dux64da}
+
+以下資料為本教材設計時查核的公開來源，時間以 \texttt{2026-03-08} 為準：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  惠文高中第二外語頁面：國一、國二已有第二外語課程。\\
+  \href{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/\%E5\%AD\%B8\%E6\%A0\%A1\%E7\%89\%B9\%E8\%89\%B2school-features/\%E5\%A4\%9A\%E5\%85\%83\%E5\%A4\%96\%E8\%AA\%9E/\%E7\%AC\%AC\%E4\%BA\%8C\%E5\%A4\%96\%E8\%AA\%9E}{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/學校特色school-features/多元外語/第二外語}
+\item
+  惠文高中國際教育頁面：位於臺中市第七期重劃區，強調國際教育與第二外語。\\
+  \href{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/\%E5\%AD\%B8\%E6\%A0\%A1\%E7\%89\%B9\%E8\%89\%B2school-features/\%E5\%9C\%8B\%E9\%9A\%9B\%E6\%95\%99\%E8\%82\%B2}{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/學校特色school-features/國際教育}
+\item
+  惠文高中數位校園頁面：全校無線網路覆蓋率接近
+  100\%，並有單一帳號整合。\\
+  \href{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/\%E5\%AD\%B8\%E6\%A0\%A1\%E7\%89\%B9\%E8\%89\%B2school-features/\%E6\%95\%B8\%E4\%BD\%8D\%E6\%A0\%A1\%E5\%9C\%92}{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/學校特色school-features/數位校園}
+\item
+  惠文高中學校交通與住宿頁面：可由水安宮站轉步行或搭配 YouBike 到校。\\
+  \href{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/\%E8\%AA\%8D\%E8\%AD\%98\%E6\%83\%A0\%E6\%96\%87about-hui-wen/\%E5\%AD\%B8\%E6\%A0\%A1\%E4\%BA\%A4\%E9\%80\%9A\%E8\%88\%87\%E4\%BD\%8F\%E5\%AE\%BF}{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/認識惠文about-hui-wen/學校交通與住宿}
+\item
+  惠文高中圖書館頁面：有國際行動力中心、第二外語空間與社區共讀站。\\
+  \href{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/\%E5\%B0\%88\%E6\%A5\%AD\%E7\%A9\%BA\%E9\%96\%93specialized-facilities/\%E5\%9C\%96\%E6\%9B\%B8\%E9\%A4\%A8}{https://sites.google.com/mail3.hwsh.tc.edu.tw/hwshfreshman/專業空間specialized-facilities/圖書館}
+\item
+  惠文高中 \texttt{113國中課程計畫} 的
+  \texttt{表三彙整0813(8年級).pdf}：本稿用來對齊校方目前公開可查的最新八年級完整單元順序。\\
+  \url{https://drive.google.com/file/d/1pokr_mdSaH3QZBDyom15kRFh-HNN4Dob/view}
+\item
+  臺中市政府 \texttt{2026-03-02} 公告之 \texttt{2026\ 臺中兒童藝術節}
+  活動資訊。\\
+  \url{https://www.taichung.gov.tw/3222453/post}
+\item
+  臺中捷運官方公司簡介與路網圖：綠線全長 16.71 公里，共 18
+  站，含水安宮站與文心森林公園站。\\
+  \url{https://www.tmrt.com.tw/about}\strut \\
+  \url{https://www.tmrt.com.tw/metro-life/map}
+\item
+  教育部 108
+  課綱學習內容代碼對照：\texttt{N-8-3}、\texttt{F-8-1}、\texttt{F-8-2}、\texttt{S-8-12}、\texttt{S-8-5}。\\
+  本教材依國中八年級下學期常見課程範圍配置，供自學任務與章節標記使用。
+\end{enumerate}
+
+\end{document}

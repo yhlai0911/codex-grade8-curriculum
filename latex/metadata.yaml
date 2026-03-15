@@ -1,0 +1,19 @@
+lang: zh-TW
+papersize: a4
+fontsize: 12pt
+documentclass: article
+classoption:
+  - oneside
+geometry:
+  - top=24mm
+  - bottom=26mm
+  - left=24mm
+  - right=24mm
+linestretch: 1.18
+toc: true
+toc-depth: 2
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
+CJKmainfont: Songti TC
+monofont: Menlo

@@ -1,0 +1,17 @@
+{
+  "source_markdown": "教材/惠文國二下數學_PBL自學語音教材.md",
+  "voice": "zh-TW-YunJheNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz",
+  "volume": "+0%",
+  "sections": [
+    {
+      "id": "00-orientation",
+      "title": "任務上線",
+      "files": [
+        "00-orientation.mp3"
+      ],
+      "chars": 192
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[project]
+name = "hueiwen-math-pbl"
+version = "0.1.0"
+description = "Self-study PBL math materials with Edge TTS audio rendering."
+requires-python = ">=3.11"
+dependencies = [
+    "edge-tts>=7.2.7",
+    "openai>=2.26.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = false
